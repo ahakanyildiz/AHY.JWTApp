@@ -1,0 +1,17 @@
+﻿@model CategoryListModel 
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<form asp-action="Update" method="post">
+    <input type="hidden" asp-for="@Model.Id" />
+    <div class="mb-2">
+        <label class="form-label">Kategori Adı: </label>
+        <input class="form-control" asp-for="@Model.Definition" />
+    </div>
+    <div class="mb-2">
+       <button type="submit" class="btn btn-primary">Güncelle</button>
+    </div>
+</form>

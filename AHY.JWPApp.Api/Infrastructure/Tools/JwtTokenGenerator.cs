@@ -16,12 +16,12 @@ namespace AHY.JWTApp.Api.Infrastructure.Tools
 
             var claims = new List<Claim>();
 
-            if (!string.IsNullOrEmpty(dto.Role)) 
+            if (!string.IsNullOrEmpty(dto.Role))
                 claims.Add(new Claim(ClaimTypes.Role, dto.Role));
 
             claims.Add(new Claim(ClaimTypes.NameIdentifier, dto.Id.ToString()));
 
-            if(!string.IsNullOrEmpty(dto.Username))
+            if (!string.IsNullOrEmpty(dto.Username))
                 claims.Add(new Claim("Username", dto.Username));
 
             var expireDate = DateTime.UtcNow.AddDays(JwtTokenDefaults.EXPIRE);
@@ -32,15 +32,15 @@ namespace AHY.JWTApp.Api.Infrastructure.Tools
                 audience: JwtTokenDefaults.VALID_AUDIENCE,
                 claims: claims,
                 notBefore: DateTime.UtcNow,
-                expires:expireDate ,
+                expires: expireDate,
                 signingCredentials: credentials
                 );
 
 
             JwtSecurityTokenHandler handler = new();
-            
-            return new TokenResponseDto(handler.WriteToken(jwtSecurityToken),expireDate);
-          
+
+            return new TokenResponseDto(handler.WriteToken(jwtSecurityToken), expireDate);
+
         }
     }
 }

@@ -16,10 +16,10 @@ namespace AHY.JWPApp.Api.Core.Application.Features.CQRS.Handlers.CommandHandlers
 
         public async Task<Unit> Handle(CategoryRemoveCommandRequest request, CancellationToken cancellationToken)
         {
-            var deletedEntity =await _categoryRepository.GetByFilterAsync(x => x.Id == request.Id);
+            var deletedEntity = await _categoryRepository.GetByFilterAsync(x => x.Id == request.Id);
             if (deletedEntity != null)
             {
-               await _categoryRepository.RemoveAsync(deletedEntity);
+                await _categoryRepository.RemoveAsync(deletedEntity);
             }
             return Unit.Value;
         }

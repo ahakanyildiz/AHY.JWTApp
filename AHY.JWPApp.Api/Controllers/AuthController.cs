@@ -30,10 +30,10 @@ namespace AHY.JWTApp.Api.Controllers
             var response = await _mediator.Send(request);
 
             if (response.IsExist)
-                return Created("", JwtTokenGenerator.GenerateToken(response));              
+                return Created("", JwtTokenGenerator.GenerateToken(response));
             else
                 return BadRequest("Kullancı adı ve ya şifre hatalı");
-            
+
         }
     }
 }

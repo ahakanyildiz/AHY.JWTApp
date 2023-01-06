@@ -20,18 +20,18 @@ namespace AHY.JWTApp.Api.Core.Application.Features.CQRS.Handlers.QueryHandlers.U
         public async Task<CheckUserResponseDto> Handle(CheckUserQueryRequest request, CancellationToken cancellationToken)
         {
             var dto = new CheckUserResponseDto();
-            var user = await _userRepository.GetByFilterAsync(x => x.UserName == request.Username && x.Password==request.Password);
+            var user = await _userRepository.GetByFilterAsync(x => x.UserName == request.Username && x.Password == request.Password);
 
             if (user == null)
             {
-                dto.IsExist= false;
+                dto.IsExist = false;
             }
             else
             {
-                dto.IsExist= true;
+                dto.IsExist = true;
                 dto.Username = user.UserName;
                 dto.Id = user.Id;
-                var role= await _roleRepository.GetByFilterAsync(x => x.Id == user.AppRoleId);
+                var role = await _roleRepository.GetByFilterAsync(x => x.Id == user.AppRoleId);
                 dto.Role = role?.Definition;
             }
             return dto;

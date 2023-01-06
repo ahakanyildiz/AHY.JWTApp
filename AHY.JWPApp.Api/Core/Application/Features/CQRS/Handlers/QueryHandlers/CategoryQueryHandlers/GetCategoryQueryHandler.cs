@@ -20,7 +20,7 @@ namespace AHY.JWPApp.Api.Core.Application.Features.CQRS.Handlers.QueryHandlers.C
 
         public async Task<CategoryListDto> Handle(GetCategoryQueryRequest request, CancellationToken cancellationToken)
         {
-            var data =await _categoryRepository.GetByFilterAsync(x => x.Id == request.Id);
+            var data = await _categoryRepository.GetByFilterAsync(x => x.Id == request.Id);
             return _mapper.Map<CategoryListDto>(data);
         }
     }

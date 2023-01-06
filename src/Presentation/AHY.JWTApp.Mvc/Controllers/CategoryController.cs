@@ -112,9 +112,9 @@ namespace AHY.JWTApp.Mvc.Controllers
                 var client = _httpClientFactory.CreateClient();
                 client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
                 var content = new StringContent(JsonConvert.SerializeObject(model), System.Text.Encoding.UTF8, "application/json");
-                var response = await client.PutAsync("http://localhost:5220/api/categories",content);
+                var response = await client.PutAsync("http://localhost:5220/api/categories", content);
 
-                if (response.StatusCode==System.Net.HttpStatusCode.NoContent)
+                if (response.StatusCode == System.Net.HttpStatusCode.NoContent)
                 {
                     return RedirectToAction("List", "Category");
                 }

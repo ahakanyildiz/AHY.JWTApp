@@ -21,7 +21,7 @@ namespace AHY.JWTApp.Api.Core.Application.Features.CQRS.Handlers.CommandHandlers
             {
                 UserName = request.Username,
                 Password = request.Password,
-                AppRoleId=(int)RoleType.Member
+                AppRoleId = (int)RoleType.Member
             });
 
             return Unit.Value;

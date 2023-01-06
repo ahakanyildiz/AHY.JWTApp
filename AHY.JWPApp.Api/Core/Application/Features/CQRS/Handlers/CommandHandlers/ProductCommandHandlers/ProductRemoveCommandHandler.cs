@@ -15,7 +15,7 @@ namespace AHY.JWPApp.Api.Core.Application.Features.CQRS.Handlers.CommandHandlers
 
         public async Task<Unit> Handle(ProductRemoveCommandRequest request, CancellationToken cancellationToken)
         {
-            var deletedEntity =await _productRepository.GetByFilterAsync(x => x.Id == request.Id);
+            var deletedEntity = await _productRepository.GetByFilterAsync(x => x.Id == request.Id);
             if (deletedEntity != null)
             {
                 await _productRepository.RemoveAsync(deletedEntity);

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AHY.JWPApp.Api.Controllers
 {
-    [Authorize(Roles ="Admin")]
+    [Authorize(Roles = "Admin")]
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriesController : ControllerBase
@@ -21,7 +21,7 @@ namespace AHY.JWPApp.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetList()
         {
-            var result =await _mediator.Send(new GetAllCategoriesQueryRequest());
+            var result = await _mediator.Send(new GetAllCategoriesQueryRequest());
             return Ok(result);
         }
 

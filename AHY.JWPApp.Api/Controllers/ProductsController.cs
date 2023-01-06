@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AHY.JWPApp.Api.Controllers
 {
-    [Authorize(Roles ="Admin,Member")]
+    [Authorize(Roles = "Admin,Member")]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase

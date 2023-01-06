@@ -16,7 +16,7 @@ namespace AHY.JWPApp.Api.Core.Application.Features.CQRS.Handlers.CommandHandlers
 
         public async Task<Unit> Handle(CategoryUpdateCommandRequest request, CancellationToken cancellationToken)
         {
-            var unChangedEntity =await _categoryRepository.GetByFilterAsync(x => x.Id == request.Id);
+            var unChangedEntity = await _categoryRepository.GetByFilterAsync(x => x.Id == request.Id);
             if (unChangedEntity != null)
             {
                 await _categoryRepository.UpdateAsync(unChangedEntity, new Category
@@ -26,7 +26,7 @@ namespace AHY.JWPApp.Api.Core.Application.Features.CQRS.Handlers.CommandHandlers
                 });
             }
             return Unit.Value;
-           
+
         }
     }
 }

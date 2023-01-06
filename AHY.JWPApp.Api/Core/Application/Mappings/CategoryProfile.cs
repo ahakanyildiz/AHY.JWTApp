@@ -8,7 +8,7 @@ namespace AHY.JWPApp.Api.Core.Application.Mappings
     {
         public CategoryProfile()
         {
-            CreateMap<Category,CategoryListDto>().ReverseMap();
+            CreateMap<Category, CategoryListDto>().ReverseMap();
         }
     }
 }

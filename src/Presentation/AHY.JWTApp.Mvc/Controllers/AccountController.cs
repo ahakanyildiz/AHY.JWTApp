@@ -46,7 +46,7 @@ namespace AHY.JWTApp.Mvc.Controllers
                         if (tokenModel.Token != null)
                             claims.Add(new Claim("accesToken", tokenModel.Token));
 
-                        var claimsIdentity = new ClaimsIdentity(claims,JwtBearerDefaults.AuthenticationScheme);
+                        var claimsIdentity = new ClaimsIdentity(claims, JwtBearerDefaults.AuthenticationScheme);
 
                         var authProps = new AuthenticationProperties
                         {
@@ -60,7 +60,7 @@ namespace AHY.JWTApp.Mvc.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("","Kullanıcı adı veya şifre hatali.");
+                    ModelState.AddModelError("", "Kullanıcı adı veya şifre hatali.");
                 }
                 return View();
             }

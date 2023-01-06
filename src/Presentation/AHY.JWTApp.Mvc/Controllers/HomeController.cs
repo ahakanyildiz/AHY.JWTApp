@@ -6,7 +6,7 @@ namespace AHY.JWTApp.Mvc.Controllers
     [Authorize]
     public class HomeController : Controller
     {
-        public IActionResult Index()  
+        public IActionResult Index()
         {
             return View();
         }
@@ -17,7 +17,7 @@ namespace AHY.JWTApp.Mvc.Controllers
             return "AdminPage";
         }
 
-        [Authorize(Roles ="Member")]
+        [Authorize(Roles = "Member")]
         public string MemberPage()
         {
             return "MemberPage";
